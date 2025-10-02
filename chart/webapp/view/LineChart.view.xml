@@ -1,0 +1,69 @@
+<mvc:View
+    controllerName="chart.controller.LineChart"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+>
+    <Panel
+        headerText="Monthly Sales (Line Chart)"
+        class="sapUiResponsiveContentPadding"
+    >
+        <content>
+            <viz:VizFrame
+                id="vfLine"
+                vizType="timeseries_line"
+                width="100%"
+                uiConfig='{"applicationSet":"fiori"}'
+                vizProperties='{
+                            "plotArea": { "dataLabel": { "visible": true } },
+                            "legend": { "visible": true },
+                            "title": { "visible": true, "text": "Sales Trend" },
+                            "timeAxis": { "title": { "visible": true, "text":"Date" } },
+                            "valueAxis": { "title": { "visible": true, "text":"Sales" } }
+                        }'
+            >
+                <viz:dataset>
+                    <viz.data:FlattenedDataset
+                        data="{chartModel>/MonthlySales}"
+                    >
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition
+                                name="Date"
+                                dataType="date"
+                                value="{chartModel>Date}"
+                            />
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition
+                                name="Sales"
+                                value="{chartModel>Sales}"
+                            />
+                            <viz.data:MeasureDefinition
+                                name="Profit"
+                                value="{chartModel>Profit}"
+                            />
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+
+                <viz:feeds>
+                    <viz.feeds:FeedItem
+                        uid="valueAxis"
+                        type="Measure"
+                        values="Sales,Profit"
+                    />
+                    <viz.feeds:FeedItem
+                        uid="timeAxis"
+                        type="Dimension"
+                        values="Date"
+                    />
+                </viz:feeds>
+                <viz:dependents>
+                    <viz:Popover id="idPopOverLine" />
+                </viz:dependents>
+            </viz:VizFrame>
+        </content>
+    </Panel>
+</mvc:View>

@@ -1,6 +1,23 @@
-<mvc:View controllerName="chart.controller.Charts"
+<mvc:View
+    controllerName="chart.controller.Charts"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
+    xmlns="sap.m"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+        class="sapUiResponsiveContentPadding"
+    >
+        <VBox
+            class="sapUiResponsiveContentPadding"
+            width="100%"
+        >
+            <!-- LINE (time-series) -->
+            <mvc:XMLView viewName="chart.view.LineChart" />
+            
+        </VBox>
     </Page>
 </mvc:View>

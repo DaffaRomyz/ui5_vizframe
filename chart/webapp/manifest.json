@@ -33,7 +33,7 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": true,
+    "flexEnabled": false,
     "dependencies": {
       "minUI5Version": "1.140.0",
       "libs": {
@@ -51,6 +51,10 @@
         "settings": {
           "bundleName": "chart.i18n.i18n"
         }
+      },
+      "chartModel": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/chartData.json"
       }
     },
     "resources": {
