@@ -1,0 +1,73 @@
+<mvc:View
+    controllerName="chart.controller.HeatmapChart"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+>
+    <Panel
+        headerText="Product Region Sales (Heatmap Chart)"
+        class="sapUiResponsiveContentPadding"
+    >
+        <content>
+            <viz:VizFrame
+                id="vfHeatmap"
+                vizType="heatmap"
+                width="100%"
+                uiConfig='{"applicationSet":"fiori"}'
+                vizProperties='{
+                            "plotArea": { "dataLabel": { "visible": true } },
+                            "legend": { "visible": true },
+                            "title": { "visible": true, "text": "Product Region Sales" },
+                            "categoryAxis": { "title": { "visible": true, "text":"Product" } },
+                            "categoryAxis2": { "title": { "visible": true, "text":"Region" } }
+                        }'
+            >
+                <viz:dataset>
+                    <viz.data:FlattenedDataset
+                        data="{chartModel>/ProductRegionSales}"
+                    >
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition
+                                name="Product"
+                                value="{chartModel>Product}"
+                            />
+                            <viz.data:DimensionDefinition
+                                name="Region"
+                                value="{chartModel>Region}"
+                            />
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition
+                                name="Sales"
+                                value="{chartModel>Sales}"
+                            />
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+
+                <viz:feeds>
+                    <viz.feeds:FeedItem
+                        uid="color"
+                        type="Measure"
+                        values="Sales"
+                    />
+                    <viz.feeds:FeedItem
+                        uid="categoryAxis"
+                        type="Dimension"
+                        values="Product"
+                    />
+                    <viz.feeds:FeedItem
+                        uid="categoryAxis2"
+                        type="Dimension"
+                        values="Region"
+                    />
+                </viz:feeds>
+                <viz:dependents>
+                    <viz:Popover id="idPopOverHeatmap" />
+                </viz:dependents>
+            </viz:VizFrame>
+        </content>
+    </Panel>
+</mvc:View>

@@ -78,5 +78,28 @@
     { "Product": "Gamma", "Share": 500 },
     { "Product": "Delta", "Share": 700 },
     { "Product": "Epsilon", "Share": 800 }
+  ],
+
+  "ProductRegionSales" : [
+    { "Product": "Alpha", "Region": "Americas", "Sales": 1230 },
+    { "Product": "Beta", "Region": "Americas", "Sales": 2000 },
+    { "Product": "Gamma", "Region": "Americas", "Sales": 500 },
+    { "Product": "Delta", "Region": "Americas", "Sales": 700 },
+    { "Product": "Epsilon", "Region": "Americas", "Sales": 800 },
+    { "Product": "Alpha", "Region": "EMEA", "Sales": 1330 },
+    { "Product": "Beta", "Region": "EMEA", "Sales": 2300 },
+    { "Product": "Gamma", "Region": "EMEA", "Sales": 800 },
+    { "Product": "Delta", "Region": "EMEA", "Sales": 1000 },
+    { "Product": "Epsilon", "Region": "EMEA", "Sales": 1100 },
+    { "Product": "Alpha", "Region": "APJ", "Sales": 2230 },
+    { "Product": "Beta", "Region": "APJ", "Sales": 2100 },
+    { "Product": "Gamma", "Region": "APJ", "Sales": 1500 },
+    { "Product": "Delta", "Region": "APJ", "Sales": 800 },
+    { "Product": "Epsilon", "Region": "APJ", "Sales": 1400 },
+    { "Product": "Alpha", "Region": "ANZ", "Sales": 1530 },
+    { "Product": "Beta", "Region": "ANZ", "Sales": 1500 },
+    { "Product": "Gamma", "Region": "ANZ", "Sales": 300 },
+    { "Product": "Delta", "Region": "ANZ", "Sales": 700 },
+    { "Product": "Epsilon", "Region": "ANZ", "Sales": 400 }
   ]
 }
