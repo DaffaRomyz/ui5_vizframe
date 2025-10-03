@@ -13,10 +13,11 @@
             width="100%"
         >
 
-            <!-- <mvc:XMLView viewName="chart.view.LineChart" />
+            <mvc:XMLView viewName="chart.view.LineChart" />
             <mvc:XMLView viewName="chart.view.ColumnChart"/>
-            <mvc:XMLView viewName="chart.view.DonutChart"/> -->
+            <mvc:XMLView viewName="chart.view.DonutChart"/>
             <mvc:XMLView viewName="chart.view.HeatmapChart"/>
+            <mvc:XMLView viewName="chart.view.TreemapChart"/>
         </VBox>
     </Page>
 </mvc:View>

@@ -1,0 +1,62 @@
+<mvc:View
+    controllerName="chart.controller.TreemapChart"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+>
+    <Panel
+        headerText="Product Shares (Treemap Chart)"
+        class="sapUiResponsiveContentPadding"
+    >
+        <content>
+            <viz:VizFrame
+                id="vfTreemap"
+                vizType="treemap"
+                width="100%"
+                uiConfig='{"applicationSet":"fiori"}'
+                vizProperties='{
+                            "plotArea": { "dataLabel": { "visible": true } },
+                            "legend": { "visible": true },
+                            "title": { "visible": true, "text": "Product Shares" }
+                        }'
+            >
+                <viz:dataset>
+                    <viz.data:FlattenedDataset
+                        data="{chartModel>/ProductShares}"
+                    >
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition
+                                name="Product"
+                                value="{chartModel>Product}"
+                            />
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition
+                                name="Share"
+                                value="{chartModel>Share}"
+                            />
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+
+                <viz:feeds>
+                    <viz.feeds:FeedItem
+                        uid="weight"
+                        type="Measure"
+                        values="Share"
+                    />
+                    <viz.feeds:FeedItem
+                        uid="title"
+                        type="Dimension"
+                        values="Product"
+                    />
+                </viz:feeds>
+                <viz:dependents>
+                    <viz:Popover id="idPopOverTreemap" />
+                </viz:dependents>
+            </viz:VizFrame>
+        </content>
+    </Panel>
+</mvc:View>
