@@ -17,7 +17,7 @@
         >
             <!-- LINE (time-series) -->
             <mvc:XMLView viewName="chart.view.LineChart" />
-            
+            <mvc:XMLView viewName="chart.view.ColumnChart"/>
         </VBox>
     </Page>
 </mvc:View>

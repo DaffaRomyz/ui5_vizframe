@@ -1,0 +1,62 @@
+<mvc:View
+    controllerName="chart.controller.ColumnChart"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+>
+    <Panel
+        headerText="Region Sales (Column Chart)"
+        class="sapUiResponsiveContentPadding"
+    >
+        <content>
+            <viz:VizFrame
+                id="vfColumn"
+                vizType="column"
+                width="100%"
+                uiConfig='{"applicationSet":"fiori"}'
+                vizProperties='{
+                            "plotArea": { "dataLabel": { "visible": true } },
+                            "legend": { "visible": true },
+                            "title": { "visible": true, "text": "Region Sales" },
+                            "categoryAxis": { "title": { "visible": true, "text":"Region" } },
+                            "valueAxis": { "title": { "visible": true, "text":"Sales" } }
+                        }'
+            >
+                <viz:dataset>
+                    <viz.data:FlattenedDataset data="{chartModel>/RegionSales}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition
+                                name="Region"
+                                value="{chartModel>Region}"
+                            />
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition
+                                name="Sales"
+                                value="{chartModel>Sales}"
+                            />
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+
+                <viz:feeds>
+                    <viz.feeds:FeedItem
+                        uid="valueAxis"
+                        type="Measure"
+                        values="Sales"
+                    />
+                    <viz.feeds:FeedItem
+                        uid="categoryAxis"
+                        type="Dimension"
+                        values="Region"
+                    />
+                </viz:feeds>
+                <viz:dependents>
+                    <viz:Popover id="idPopOverColumn" />
+                </viz:dependents>
+            </viz:VizFrame>
+        </content>
+    </Panel>
+</mvc:View>
