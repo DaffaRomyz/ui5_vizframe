@@ -7,7 +7,7 @@ sap.ui.define(
     (Controller, ChartFormatter, Format) => {
         "use strict";
 
-        return Controller.extend("fiori.chart.controller.Charts", {
+        return Controller.extend("chart.controller.LineChart", {
             onInit() {
                 Format.numericFormatter(ChartFormatter.getInstance());
                 var oFormat = ChartFormatter.DefaultPattern;

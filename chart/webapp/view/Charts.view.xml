@@ -2,9 +2,6 @@
     controllerName="chart.controller.Charts"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
-    xmlns:viz="sap.viz.ui5.controls"
-    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
-    xmlns:viz.data="sap.viz.ui5.data"
 >
     <Page
         id="page"
@@ -15,9 +12,10 @@
             class="sapUiResponsiveContentPadding"
             width="100%"
         >
-            <!-- LINE (time-series) -->
+
             <mvc:XMLView viewName="chart.view.LineChart" />
             <mvc:XMLView viewName="chart.view.ColumnChart"/>
+            <mvc:XMLView viewName="chart.view.DonutChart"/>
         </VBox>
     </Page>
 </mvc:View>
